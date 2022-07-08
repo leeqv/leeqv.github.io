@@ -1,0 +1,373 @@
+/* NAV */
+nav {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.025);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 9999; /* for scrolling */
+    top: -20vh; /* for scrolling */
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+            z-index: 9; /* all nav links should be clickable,
+            issue due to main absolute top: 0 */
+        }
+    }
+
+    .sns-links {
+        width: 100%;
+        background: var(--secondary-background);
+        justify-content: flex-end;
+        z-index: 99;
+        padding: 0.25rem 0;
+        
+        li {
+            font-size: 1rem;
+            margin: 0 1rem;
+            text-align: center;
+            
+            a:link,
+            a:visited {
+                color: var(--link-color);
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
+
+    .main-nav {
+        padding: 1.75vw;
+
+        li {
+            margin: 0 1.75vw;
+        }
+    }
+
+    .section-navigator {
+        a:link {
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        a:link,
+        a:visited {
+            color: var(--link-color);
+        }
+
+        @mixin active-nav-link {
+            content: '';
+            height: 50%;
+            width: 100%;
+            position: absolute;
+            bottom: 5%;
+            left: 10%;
+            background: var(--tertiary-background);
+            z-index: -1;
+        }
+
+        a:link::after {
+            @include active-nav-link;
+            width: 0%;
+            transition: all 0.5s ease;
+        }
+
+        a:hover::after {
+            @include active-nav-link;
+        }
+
+        a:link.active-nav-link::after {
+            @include active-nav-link;
+        }
+    }
+    
+
+    /* fixed-nav after scrolling */
+    &.u-fixed {
+        background: var(--transparent-color);
+        top: 0;
+        transition: all ease 0.75s;
+
+        .sns-links {
+            display: none;    
+        }
+
+        .main-nav {
+            padding: 0.5rem;
+        }
+
+        @mixin logo-and-after-animation-settings {
+            animation-duration: 1.75s;
+            animation-timing-function: ease;
+        }
+        .logo {
+            animation-name: logo-appear;
+            @include logo-and-after-animation-settings;
+        }
+        .logo::after {
+            animation-name: logo-appear-after;
+            @include logo-and-after-animation-settings;
+        }
+    }
+}
+
+@keyframes logo-appear-after {
+    from {
+        left: 0%;
+        width: 0;
+    }
+    to {
+        width: 4rem;
+        left: 104%;
+    }
+}
+@keyframes logo-appear {
+    from {
+        margin-right: 0;
+    }
+    to {
+        margin-right: 3rem;
+    }
+}
+
+/* MAIN */
+main {
+    /* to fix section slide when nav static -> fixed */
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* SECTIONS */
+section:not(.intro) {
+    min-height: 100vh;
+    width: 100%;
+    padding: 4rem 10%; /* 4 rem is the height of fixed nav */
+    background: var(--primary-background);
+    position: relative;
+    color: var(--secondary-color);
+
+    > header,
+    .section-header {
+        font-size: calc(2.5rem + 1.5vw); /* almost same as my-job-title */
+        position: relative;
+        opacity: 0;
+    }
+}
+
+//.visible-header {
+header.visible-content,
+.section-header.visible-content {
+    animation-name: header-appear;
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes header-appear {
+    from {
+        top: 4rem;
+        letter-spacing: 2rem;
+    }
+    50% {
+        top: 0;
+        letter-spacing: 2rem;
+    }
+    to {
+        opacity: 1;
+        letter-spacing: 0.5rem;
+    }
+}
+
+article {
+    position: relative;
+}
+
+section:not(.intro) > article,
+section > .article {
+    top: 3rem;
+    position: relative;
+    opacity: 0;
+}
+
+article.visible-content,
+.article.visible-content {
+    animation-name: article-appear;
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;    
+}
+
+@keyframes article-appear {
+    from {
+        top: 3rem;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.projects > article {
+    position: relative;
+    opacity: 0;
+
+    &.visible-content {    
+        animation-duration: 1.25s;
+        animation-fill-mode: forwards;  
+    }
+
+    &.visible-content.main-projects {
+        animation-name: main-projects-appear;
+    }
+    
+    &.visible-content.minor-projects {
+        animation-name: minor-projects-appear;
+    }
+}
+
+@keyframes main-projects-appear {
+    from {
+        left: -100vh;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes minor-projects-appear {
+    from {
+        right: -100vh;
+        opacity: 0;
+    }
+    to {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+section:not(.intro).projects {
+    background: transparent;
+    padding-top: 0.5rem;
+}
+
+/* ABOUT */
+.about {
+    &__contents {
+        margin: 1rem auto 0;
+        font-size: 2rem;
+        width: 95%;
+    }
+
+    &__infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            li:not(first-of-type) {
+                margin: 0 2rem;
+            }
+        }
+
+        ul:not(first-of-type) {
+            justify-content: space-around;
+        }
+        ul:not(first-of-type)::before {
+            width: 100%;
+        }
+
+        ul:first-of-type {
+            justify-content: flex-start;
+        }
+        ul:first-of-type::before {
+            width: auto;
+        }
+
+        ul[title="Name"] > li {
+            color: var(--tertiary-color);
+        }
+
+        .icon-container {
+            display: inline-block;
+            text-align: center;
+            height: fit-content;
+
+            width: 2.5rem;
+        }
+
+        .jquery-logo {
+            height: 1.5rem;
+        }
+        .jquery-svg-fill {
+            fill: var(--tertiary-color);
+        }
+
+        @media screen and (min-width: $medium-screen) {
+            ul {
+                flex-direction: row;
+
+                li:not(first-of-type) {
+                    margin: 0 1rem;
+                }
+            }
+        }
+    }
+
+    &__learning {        
+        li {
+            margin-left: 1rem;
+        }
+        li::before {
+            @include font-awesome-settings;
+            content: '\f0eb';
+            font-size: 80%;
+            margin: 0 0.5rem;
+        }
+    }
+    
+    ul:not(.about__infos)::before {
+        content: attr(title) ':';
+    }
+
+    @media screen and (min-width: $medium-screen) {
+        &__contents {
+            grid: 'pic infos'
+                'learning learning';
+            margin-top: 1.5rem;
+        }
+    }
+
+    i {
+        color: var(--tertiary-color);
+    }
+}
+
+/* CONTACT */
+.contact {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    .button-group {
+        flex-direction: column;
+        font-size: 2rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 2;
+
+        @media screen and (min-width: $wide-screen) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+}

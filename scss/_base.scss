@@ -1,0 +1,123 @@
+/* RESETS */
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+i {
+    height: fit-content;
+}
+
+body,
+h1,
+h2,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+button:hover,
+[role="button"] {
+    cursor: pointer;
+}
+
+/* VARIABLES, MIXINS */
+$medium-screen: 480px;
+$wide-screen: 800px;
+$very-wide-screen: 1100px;
+
+@mixin font-awesome-settings {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+}
+
+/* UTILITIES */
+.u-hidden {
+    display: none;
+}
+
+.u-fixed {
+    position: fixed;
+}
+
+.u-transparent {
+    opacity: 0;
+}
+
+/* BODY STYLES */
+@mixin light-colors {
+    --primary-color: #6E8EA2;
+    --secondary-color: #3C5260;
+    --tertiary-color: #DA7F8F;
+    --link-color: #686767;
+    --link-background: #fbfbfb;
+    --primary-background: #FAF3F3;
+    --secondary-background: #dbdbdb;
+    --tertiary-background: pink;
+    --base-color: white;
+    --transparent-color: rgba(221, 221, 221, 0.98);
+    --main-proj-bg: #c0ebfd;
+    --minor-proj-bg: #d3f2ff;
+}
+
+@mixin dark-colors {
+    --primary-color: #8CA8B9;
+    --secondary-color: #B2CDDD;
+    --tertiary-color: #E67286;
+    --link-color: #c4c4c4;
+    --link-background: #171717;
+    --primary-background: #1e1e1e;
+    --secondary-background: #242424;
+    --tertiary-background: #5e2a33;
+    --base-color: black;
+    --transparent-color: rgba(40, 39, 39, 0.96);
+    --main-proj-bg: #1A3342;
+    --minor-proj-bg: #303E46;
+}
+
+.theme-light {
+    @include light-colors;
+}
+
+.theme-dark {
+    @include dark-colors;
+}
+
+@media (prefers-color-scheme: light) {
+    .theme-os-default {
+        @include light-colors;
+    }
+    .profile-img-light {
+        display: block;
+    }
+    .profile-img-dark {
+        display: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .theme-os-default {
+        @include dark-colors;
+    }
+    .profile-img-light {
+        display: none;
+    }
+    .profile-img-dark {
+        display: block;
+    }
+}
+
+/* GENERAL STYLES */
+body {
+    font-family: 'Karla', sans-serif;
+    background: var(--base-color);
+}
