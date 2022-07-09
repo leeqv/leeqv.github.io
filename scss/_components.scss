@@ -100,68 +100,6 @@
     }
 }
 
-.photo-card {
-    .photo-card-btn {
-        position: absolute;
-        margin: auto;
-        bottom: 0.5rem;
-        right: 0;
-
-        &:hover ~ .card .card__face--front {
-            outline: 2px solid var(--tertiary-background);
-        }
-    }
-}
-
-.profile-img-as-bg {
-    position: absolute;
-    margin: auto;
-    width: 183px;
-    height: 183px;
-    bottom: 0;
-    z-index: 0;
-}
-
-.profile-img {
-    width: 183px;
-    height: 183px;
-}
-
-.theme-light {
-    .profile-img-light {
-        display: block;
-    }
-    .profile-img-dark {
-        display: none;
-    }
-}
-
-.theme-dark {
-    .profile-img-light {
-        display: none;
-    }
-    .profile-img-dark {
-        display: block;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    .profile-img-light {
-        display: block;
-    }
-    .profile-img-dark {
-        display: none;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .profile-img-light {
-        display: none;
-    }
-    .profile-img-dark {
-        display: block;
-    }
-}
 /* PROJECTS */
 .main-projects {
     padding: 2rem 0;

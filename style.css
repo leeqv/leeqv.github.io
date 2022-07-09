@@ -90,14 +90,6 @@ button:hover,
     --main-proj-bg: #c0ebfd;
     --minor-proj-bg: #d3f2ff;
   }
-
-  .profile-img-light {
-    display: block;
-  }
-
-  .profile-img-dark {
-    display: none;
-  }
 }
 @media (prefers-color-scheme: dark) {
   .theme-os-default {
@@ -113,14 +105,6 @@ button:hover,
     --transparent-color: rgba(40, 39, 39, 0.96);
     --main-proj-bg: #1A3342;
     --minor-proj-bg: #303E46;
-  }
-
-  .profile-img-light {
-    display: none;
-  }
-
-  .profile-img-dark {
-    display: block;
   }
 }
 /* GENERAL STYLES */
@@ -218,62 +202,6 @@ body {
   bottom: 0;
 }
 
-.photo-card .photo-card-btn {
-  position: absolute;
-  margin: auto;
-  bottom: 0.5rem;
-  right: 0;
-}
-.photo-card .photo-card-btn:hover ~ .card .card__face--front {
-  outline: 2px solid var(--tertiary-background);
-}
-
-.profile-img-as-bg {
-  position: absolute;
-  margin: auto;
-  width: 183px;
-  height: 183px;
-  bottom: 0;
-  z-index: 0;
-}
-
-.profile-img {
-  width: 183px;
-  height: 183px;
-}
-
-.theme-light .profile-img-light {
-  display: block;
-}
-.theme-light .profile-img-dark {
-  display: none;
-}
-
-.theme-dark .profile-img-light {
-  display: none;
-}
-.theme-dark .profile-img-dark {
-  display: block;
-}
-
-@media (prefers-color-scheme: light) {
-  .profile-img-light {
-    display: block;
-  }
-
-  .profile-img-dark {
-    display: none;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .profile-img-light {
-    display: none;
-  }
-
-  .profile-img-dark {
-    display: block;
-  }
-}
 /* PROJECTS */
 .main-projects {
   padding: 2rem 0;

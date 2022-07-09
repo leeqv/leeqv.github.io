@@ -44,15 +44,6 @@ var myPortfolio = {};
         });
     }
     
-    this.flipPhotoCard = function () {
-        const photoCard = document.getElementById('photo-card');
-        if (photoCard.classList.contains('flip')) {
-            photoCard.classList.remove('flip');
-        } else {
-            photoCard.classList.add('flip');
-        }
-    }
-    
     this.infoBtnTransition = function () {
         if (this.classList.contains('o-cross-btn')) {
             this.classList.remove('o-cross-btn');
@@ -103,11 +94,6 @@ window.addEventListener('scroll', () => {
 
 /** ON LOAD */
 window.addEventListener('load', function() {
-    document.getElementById('photo-card-btn').addEventListener('click', (e) => {
-        myPortfolio.infoBtnTransition.apply(e.target);
-        myPortfolio.flipPhotoCard();
-    });
-
     [...document.getElementsByClassName('js-proj-info-btn')].forEach(btn => {
         btn.addEventListener('click', function(){
             myPortfolio.infoBtnTransition.apply(btn);

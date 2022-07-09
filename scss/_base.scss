@@ -96,23 +96,11 @@ $very-wide-screen: 1100px;
     .theme-os-default {
         @include light-colors;
     }
-    .profile-img-light {
-        display: block;
-    }
-    .profile-img-dark {
-        display: none;
-    }
 }
 
 @media (prefers-color-scheme: dark) {
     .theme-os-default {
         @include dark-colors;
-    }
-    .profile-img-light {
-        display: none;
-    }
-    .profile-img-dark {
-        display: block;
     }
 }
 
