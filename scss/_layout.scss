@@ -152,9 +152,10 @@ section:not(.intro) {
 
     > header,
     .section-header {
-        font-size: calc(2.5rem + 1.5vw); /* almost same as my-job-title */
+        font-size: 2.5rem; /* almost same as my-job-title */
         position: relative;
         opacity: 0;
+        text-align: center;
     }
 }
 
@@ -240,6 +241,8 @@ section:not(.intro).projects {
         margin: 1rem auto 0;
         font-size: 2rem;
         width: 95%;
+        font-size: 1.25rem;
+        text-align: center;
     }
 
     &__infos {
@@ -249,8 +252,12 @@ section:not(.intro).projects {
 
         ul {
             display: flex;
-            flex-wrap: wrap;
+            width: fit-content;
+            margin: auto;
+            align-items: center;
             flex-direction: column;
+            margin: 0.25rem auto;
+
 
             li:not(first-of-type) {
                 margin: 0 2rem;
@@ -292,8 +299,6 @@ section:not(.intro).projects {
 
         @media screen and (min-width: $medium-screen) {
             ul {
-                flex-direction: row;
-
                 li:not(first-of-type) {
                     margin: 0 1rem;
                 }

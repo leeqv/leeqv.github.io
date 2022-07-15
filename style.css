@@ -699,10 +699,11 @@ section:not(.intro) {
 }
 section:not(.intro) > header,
 section:not(.intro) .section-header {
-  font-size: calc(2.5rem + 1.5vw);
+  font-size: 2.5rem;
   /* almost same as my-job-title */
   position: relative;
   opacity: 0;
+  text-align: center;
 }
 
 article {
@@ -780,6 +781,8 @@ section:not(.intro).projects {
   margin: 1rem auto 0;
   font-size: 2rem;
   width: 95%;
+  font-size: 1.25rem;
+  text-align: center;
 }
 .about__infos {
   display: flex;
@@ -788,8 +791,11 @@ section:not(.intro).projects {
 }
 .about__infos ul {
   display: flex;
-  flex-wrap: wrap;
+  width: fit-content;
+  margin: auto;
+  align-items: center;
   flex-direction: column;
+  margin: 0.25rem auto;
 }
 .about__infos ul li:not(first-of-type) {
   margin: 0 2rem;
@@ -822,9 +828,6 @@ section:not(.intro).projects {
   fill: var(--tertiary-color);
 }
 @media screen and (min-width: 480px) {
-  .about__infos ul {
-    flex-direction: row;
-  }
   .about__infos ul li:not(first-of-type) {
     margin: 0 1rem;
   }
