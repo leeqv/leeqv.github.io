@@ -9,67 +9,6 @@ a:hover {
     opacity: 0.75;
 }
 
-.o-info-btn {
-    position: absolute;
-    height: 1.25rem;
-    width: 1.25rem;
-    border-radius: 0.25rem;
-
-    height: 1.5rem;
-    width: 1.5rem;
-    border-radius: 50%;
-    border: 0;
-    background: var(--link-background);
-    filter: drop-shadow(0 0.1rem 0.15rem gray);
-    transition: all 0.5s ease;
-
-    &::after,
-    &::before {
-        content: '';
-        position: absolute;
-        width: 18%;
-        background: #a8a8a8;
-
-        transition: background-color ease 0.5s, height 0.25s ease 0.25s, transform ease 0.25s;
-    }
-
-    &::before {
-        height: 14%;
-        top: 20%;
-        left: 0;
-        right: 0;
-        margin: auto;
-    }
-
-    &::after {
-        height: 35%;
-        bottom: 20%;
-        left: 0;
-        right: 0;
-        margin: auto;
-    }     
-}
-
-.o-info-btn:hover {
-    background: rgba(240, 240, 240);
-}
-
-.o-cross-btn.o-info-btn {
-    &::before,
-    &::after {
-        background-color: gray;
-        height: 60%;
-        transition: background-color ease 0.5s, height ease 0.25s, transform 0.25s ease 0.5s;
-    }
-
-    &::after {
-        transform: rotate(45deg);
-    }
-    &::before {
-        transform: rotate(-45deg);
-    }
-}
-
 .o-btn-ext-link {
     background: rgb(26, 26, 26);
     display: inline-block;

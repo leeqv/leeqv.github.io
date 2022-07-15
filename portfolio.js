@@ -94,15 +94,14 @@ window.addEventListener('scroll', () => {
 
 /** ON LOAD */
 window.addEventListener('load', function() {
-    [...document.getElementsByClassName('js-proj-info-btn')].forEach(btn => {
-        btn.addEventListener('click', function(){
-            myPortfolio.infoBtnTransition.apply(btn);
-            const projDetails = this.parentElement.getElementsByClassName('js-proj-details')[0];
-            if (projDetails.classList.contains('u-transparent')) {
-                projDetails.classList.remove('u-transparent');
-            } else {
-                projDetails.classList.add('u-transparent');
-            }
+    [...document.getElementsByClassName('js-project-card')].forEach(btn => {
+        btn.addEventListener('mouseenter', function(){
+            const projDetails = this.getElementsByClassName('js-proj-details')[0];
+            projDetails.classList.remove('u-transparent');
+        });
+        btn.addEventListener('mouseleave', function(){
+            const projDetails = this.getElementsByClassName('js-proj-details')[0];
+            projDetails.classList.add('u-transparent');
         });
     });
 

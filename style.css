@@ -281,12 +281,6 @@ body {
 .project-card__img {
   width: 100%;
 }
-.project-card__info-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 99;
-}
 .project-card__details {
   position: absolute;
   height: 100%;
@@ -395,57 +389,6 @@ a:visited {
 
 a:hover {
   opacity: 0.75;
-}
-
-.o-info-btn {
-  position: absolute;
-  height: 1.25rem;
-  width: 1.25rem;
-  border-radius: 0.25rem;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  border: 0;
-  background: var(--link-background);
-  filter: drop-shadow(0 0.1rem 0.15rem gray);
-  transition: all 0.5s ease;
-}
-.o-info-btn::after, .o-info-btn::before {
-  content: "";
-  position: absolute;
-  width: 18%;
-  background: #a8a8a8;
-  transition: background-color ease 0.5s, height 0.25s ease 0.25s, transform ease 0.25s;
-}
-.o-info-btn::before {
-  height: 14%;
-  top: 20%;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-.o-info-btn::after {
-  height: 35%;
-  bottom: 20%;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.o-info-btn:hover {
-  background: rgb(240, 240, 240);
-}
-
-.o-cross-btn.o-info-btn::before, .o-cross-btn.o-info-btn::after {
-  background-color: gray;
-  height: 60%;
-  transition: background-color ease 0.5s, height ease 0.25s, transform 0.25s ease 0.5s;
-}
-.o-cross-btn.o-info-btn::after {
-  transform: rotate(45deg);
-}
-.o-cross-btn.o-info-btn::before {
-  transform: rotate(-45deg);
 }
 
 .o-btn-ext-link {
