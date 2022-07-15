@@ -705,27 +705,6 @@ section:not(.intro) .section-header {
   opacity: 0;
 }
 
-header.visible-content,
-.section-header.visible-content {
-  animation-name: header-appear;
-  animation-duration: 1.25s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes header-appear {
-  from {
-    top: 4rem;
-    letter-spacing: 2rem;
-  }
-  50% {
-    top: 0;
-    letter-spacing: 2rem;
-  }
-  to {
-    opacity: 1;
-    letter-spacing: 0.5rem;
-  }
-}
 article {
   position: relative;
 }
@@ -737,14 +716,16 @@ section > .article {
   opacity: 0;
 }
 
+header.visible-content,
+.section-header.visible-content,
 article.visible-content,
 .article.visible-content {
-  animation-name: article-appear;
+  animation-name: content-appear;
   animation-duration: 1.25s;
   animation-fill-mode: forwards;
 }
 
-@keyframes article-appear {
+@keyframes content-appear {
   from {
     top: 3rem;
     opacity: 0;
